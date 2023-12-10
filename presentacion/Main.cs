@@ -29,5 +29,11 @@ namespace presentacion
             frmListadoMarcas listadoMarcas = new frmListadoMarcas();    
             listadoMarcas.ShowDialog();
         }
+
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListadoArticulos listadoArt = new frmListadoArticulos();
+            listadoArt.ShowDialog();
+        }
     }
 }

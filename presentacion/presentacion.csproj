@@ -75,6 +75,9 @@
     <EmbeddedResource Include="frmAltaMarca.resx">
       <DependentUpon>frmAltaMarca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListadoArticulos.resx">
+      <DependentUpon>frmListadoArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListadoMarcas.resx">
       <DependentUpon>frmListadoMarcas.cs</DependentUpon>
     </EmbeddedResource>
