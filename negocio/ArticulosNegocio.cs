@@ -38,5 +38,22 @@ namespace negocio
 
             return listaArticulos;
         }
+
+        public void agregarArticulo(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            
+        }
     }
 }
