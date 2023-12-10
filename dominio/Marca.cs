@@ -13,5 +13,10 @@ namespace dominio
        
         public string UrlImg { get; set; }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
+
     }
 }

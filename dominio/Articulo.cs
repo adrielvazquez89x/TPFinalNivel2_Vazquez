@@ -17,7 +17,7 @@ namespace dominio
         public Categoria Tipo { get; set; }
         public string UrlImg { get; set; }
 
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
 
     }
 }

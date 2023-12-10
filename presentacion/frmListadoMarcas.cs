@@ -47,6 +47,7 @@ namespace presentacion
         public void OcultarColumnas()
         {
             dgvMarcas.Columns["UrlImg"].Visible = false;
+            dgvMarcas.Columns["Id"].Visible = false;
         }
 
         private void btnAddMarca_Click(object sender, EventArgs e)
