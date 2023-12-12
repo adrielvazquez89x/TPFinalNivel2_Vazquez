@@ -9,6 +9,8 @@ namespace negocio
 {
     public class CategoriasNegocio
     {
+        //Listamos las categorías nomás. 
+
         public List<Categoria> listarCategorias()
         {
             List<Categoria> lista = new List<Categoria>();
@@ -23,6 +25,7 @@ namespace negocio
                 {
                     Categoria aux = new Categoria();
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Id = (int)datos.Lector["Id"];
 
                     lista.Add(aux); 
                 }

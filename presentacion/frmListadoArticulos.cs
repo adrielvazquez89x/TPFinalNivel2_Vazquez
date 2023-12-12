@@ -32,9 +32,9 @@ namespace presentacion
                 cargarImagen(listaArticulos[0].UrlImg);
 
                 //Datos al lado de la imágen
-                lblListadoArticulo.Text = listaArticulos[0].Fabricante.ToString();
-                lblListadoModeloArticulo.Text = listaArticulos[0].Nombre.ToString();
-                frmListadoPrecioArticulo.Text = "$" + listaArticulos[0].Precio.ToString();
+                //lblListadoArticulo.Text = listaArticulos[0].Fabricante.ToString();
+                //lblListadoModeloArticulo.Text = listaArticulos[0].Nombre.ToString();
+                //frmListadoPrecioArticulo.Text = "$" + listaArticulos[0].Precio.ToString();
             }
             catch (Exception ex)
             {
@@ -87,6 +87,47 @@ namespace presentacion
         {
             frmAltaArticulo altaArticulo = new frmAltaArticulo();
             altaArticulo.ShowDialog();
+            cargarListado();
+        }
+
+        private void btnModificarArticulo_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+
+            frmAltaArticulo alta = new frmAltaArticulo(seleccionado);
+            alta.ShowDialog();
+            cargarListado();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ArticulosNegocio negocio = new ArticulosNegocio();
+            Articulo seleccionado;
+
+            try
+            {
+                DialogResult valor = MessageBox.Show("Estas seguro que querés eliinarlo?", "Eliminando...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if(valor == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminarArticulo(seleccionado);
+                }
+                cargarListado();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+            frmVerDetalle detalle = new frmVerDetalle(seleccionado);
+            detalle.ShowDialog();
+
         }
     }
 }

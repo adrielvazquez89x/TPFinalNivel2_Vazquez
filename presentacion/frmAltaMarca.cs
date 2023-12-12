@@ -14,7 +14,8 @@ namespace presentacion
 {
     public partial class frmAltaMarca : Form
     {
-        //private Marca marca = null;
+        //Métodos para el formulario "Alta de marcas"
+
         public frmAltaMarca()
         {
             InitializeComponent();

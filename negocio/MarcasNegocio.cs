@@ -9,6 +9,7 @@ namespace negocio
 {
     public class MarcasNegocio
     {
+        // ACá va el ""CRUD"" de las marcas
         public List<Marca> listarMarcas()
         {
             List<Marca> lista = new List<Marca>();
@@ -23,6 +24,7 @@ namespace negocio
                 {
                     Marca aux = new Marca();
                     aux.Nombre = (string)datos.Lector["Descripcion"];
+                    aux.Id = (int)datos.Lector["Id"];
 
                     lista.Add(aux);
                 }

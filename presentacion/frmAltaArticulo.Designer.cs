@@ -45,8 +45,8 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbxAltaImagen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAltaImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -122,6 +122,7 @@
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(153, 20);
             this.txtUrl.TabIndex = 8;
+            this.txtUrl.Leave += new System.EventHandler(this.txtUrl_Leave);
             // 
             // lblPrecio
             // 
@@ -183,6 +184,7 @@
             this.btnAceptar.TabIndex = 15;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -194,20 +196,21 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // pictureBox1
+            // pbxAltaImagen
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(328, 73);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(233, 232);
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
+            this.pbxAltaImagen.Location = new System.Drawing.Point(328, 73);
+            this.pbxAltaImagen.Name = "pbxAltaImagen";
+            this.pbxAltaImagen.Size = new System.Drawing.Size(233, 232);
+            this.pbxAltaImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxAltaImagen.TabIndex = 17;
+            this.pbxAltaImagen.TabStop = false;
             // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxAltaImagen);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cboCategoria);
@@ -228,7 +231,7 @@
             this.Name = "frmAltaArticulo";
             this.Text = "Articulo nuevo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAltaImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,6 +256,6 @@
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxAltaImagen;
     }
 }
