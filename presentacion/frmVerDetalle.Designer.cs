@@ -56,7 +56,7 @@
             // 
             this.pbxUrlImagen.Location = new System.Drawing.Point(25, 111);
             this.pbxUrlImagen.Name = "pbxUrlImagen";
-            this.pbxUrlImagen.Size = new System.Drawing.Size(238, 302);
+            this.pbxUrlImagen.Size = new System.Drawing.Size(281, 323);
             this.pbxUrlImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxUrlImagen.TabIndex = 1;
             this.pbxUrlImagen.TabStop = false;
@@ -65,7 +65,7 @@
             // 
             this.lblNombreMarca.AutoSize = true;
             this.lblNombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreMarca.Location = new System.Drawing.Point(278, 158);
+            this.lblNombreMarca.Location = new System.Drawing.Point(333, 158);
             this.lblNombreMarca.Name = "lblNombreMarca";
             this.lblNombreMarca.Size = new System.Drawing.Size(58, 16);
             this.lblNombreMarca.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             this.lblModelo.AutoSize = true;
             this.lblModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.Location = new System.Drawing.Point(278, 189);
+            this.lblModelo.Location = new System.Drawing.Point(333, 189);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(63, 16);
             this.lblModelo.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(278, 220);
+            this.lblCategoria.Location = new System.Drawing.Point(333, 220);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(79, 16);
             this.lblCategoria.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(278, 251);
+            this.lblPrecio.Location = new System.Drawing.Point(333, 251);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(56, 16);
             this.lblPrecio.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(280, 282);
+            this.lblDescripcion.Location = new System.Drawing.Point(335, 282);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(94, 16);
             this.lblDescripcion.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(278, 127);
+            this.lblCodigo.Location = new System.Drawing.Point(333, 127);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(61, 16);
             this.lblCodigo.TabIndex = 7;
@@ -136,7 +136,7 @@
             this.rtbDescripcion.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.rtbDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbDescripcion.Location = new System.Drawing.Point(281, 301);
+            this.rtbDescripcion.Location = new System.Drawing.Point(336, 301);
             this.rtbDescripcion.Name = "rtbDescripcion";
             this.rtbDescripcion.ReadOnly = true;
             this.rtbDescripcion.Size = new System.Drawing.Size(192, 112);
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 536);
+            this.ClientSize = new System.Drawing.Size(556, 545);
             this.Controls.Add(this.rtbDescripcion);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.lblCodigo);
