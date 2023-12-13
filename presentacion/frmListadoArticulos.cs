@@ -244,5 +244,11 @@ namespace presentacion
                 cboCriterio.Items.Add("Contiene ");
             }
         }
+
+        private void btnRegistrosEliminados_Click(object sender, EventArgs e)
+        {
+           frmRecuperarArticulos articulos = new frmRecuperarArticulos();
+            articulos.ShowDialog();
+        }
     }
 }

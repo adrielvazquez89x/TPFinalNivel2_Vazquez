@@ -49,6 +49,7 @@
             this.txtFiltroAvanzado = new System.Windows.Forms.TextBox();
             this.lblFiltroAvanzado = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnRegistrosEliminados = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +75,7 @@
             // 
             // btnNuevoArticulo
             // 
-            this.btnNuevoArticulo.Location = new System.Drawing.Point(834, 61);
+            this.btnNuevoArticulo.Location = new System.Drawing.Point(834, 31);
             this.btnNuevoArticulo.Name = "btnNuevoArticulo";
             this.btnNuevoArticulo.Size = new System.Drawing.Size(155, 23);
             this.btnNuevoArticulo.TabIndex = 2;
@@ -84,7 +85,7 @@
             // 
             // btnModificarArticulo
             // 
-            this.btnModificarArticulo.Location = new System.Drawing.Point(834, 99);
+            this.btnModificarArticulo.Location = new System.Drawing.Point(834, 69);
             this.btnModificarArticulo.Name = "btnModificarArticulo";
             this.btnModificarArticulo.Size = new System.Drawing.Size(155, 23);
             this.btnModificarArticulo.TabIndex = 3;
@@ -94,7 +95,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(834, 138);
+            this.button1.Location = new System.Drawing.Point(834, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 23);
             this.button1.TabIndex = 4;
@@ -256,11 +257,22 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnRegistrosEliminados
+            // 
+            this.btnRegistrosEliminados.Location = new System.Drawing.Point(834, 150);
+            this.btnRegistrosEliminados.Name = "btnRegistrosEliminados";
+            this.btnRegistrosEliminados.Size = new System.Drawing.Size(155, 23);
+            this.btnRegistrosEliminados.TabIndex = 21;
+            this.btnRegistrosEliminados.Text = "Registros Eliminados";
+            this.btnRegistrosEliminados.UseVisualStyleBackColor = true;
+            this.btnRegistrosEliminados.Click += new System.EventHandler(this.btnRegistrosEliminados_Click);
+            // 
             // frmListadoArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 790);
+            this.Controls.Add(this.btnRegistrosEliminados);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.lblFiltroAvanzado);
             this.Controls.Add(this.txtFiltroAvanzado);
@@ -315,5 +327,6 @@
         private System.Windows.Forms.TextBox txtFiltroAvanzado;
         private System.Windows.Forms.Label lblFiltroAvanzado;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnRegistrosEliminados;
     }
 }

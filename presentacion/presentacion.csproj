@@ -70,6 +70,12 @@
     <Compile Include="frmListadoMarcas.Designer.cs">
       <DependentUpon>frmListadoMarcas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecuperarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperarArticulos.Designer.cs">
+      <DependentUpon>frmRecuperarArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoMarcas.resx">
       <DependentUpon>frmListadoMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperarArticulos.resx">
+      <DependentUpon>frmRecuperarArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerDetalle.resx">
       <DependentUpon>frmVerDetalle.cs</DependentUpon>

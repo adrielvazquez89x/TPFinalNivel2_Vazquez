@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
+using System.Security.Policy;
 
 namespace presentacion
 {
@@ -81,38 +82,51 @@ namespace presentacion
                 {
                     articulo = new Articulo();
                 }
+
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.UrlImg = txtUrl.Text;
-                articulo.Precio.ToString("0.00");
-                articulo.Precio = decimal.Parse(txtPrecio.Text);
                 articulo.Fabricante = (Marca)cboMarca.SelectedItem;
                 articulo.Tipo  = (Categoria)cboCategoria.SelectedItem;
+                //articulo.Precio = decimal.Parse(txtPrecio.Text);
 
-                if(articulo.Id != 0)
+                decimal precio;
+                if (Decimal.TryParse(txtPrecio.Text, out precio))
                 {
-
-                    negocio.modificarArticulo(articulo);
-                    MessageBox.Show("Modificación exitosa.");
-
-                    //Modificar articulo
-                }
-                else
-                {
-                    //Agregar artículo:
-                    negocio.agregarArticulo(articulo);
-                    MessageBox.Show("Agregado correctamente.");
-                   
+                    articulo.Precio = precio;
 
                 }
-                Close();
 
+                if (validarCampos())
+                {
+                    return;
+                }
+
+                //Agregar o modificar articulos
+                if (articulo.Id != 0)
+                    {
+
+                        negocio.modificarArticulo(articulo);
+                        MessageBox.Show("Modificación exitosa.");
+
+                        //Modificar articulo
+                    }
+                    else
+                    {
+                        //Agregar artículo:
+                        negocio.agregarArticulo(articulo);
+                        MessageBox.Show("Agregado correctamente.");
+
+
+                    }
+          
+                    Close();
+              
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.ToString());
+               MessageBox.Show(ex.ToString());
             }
         }
 
@@ -136,6 +150,80 @@ namespace presentacion
         private void txtUrl_Leave(object sender, EventArgs e)
         {
             cargarImagen(txtUrl.Text);
+        }
+
+        private bool validarCampos()
+        {
+            bool nombre = string.IsNullOrEmpty(txtNombre.Text);
+            bool codigo = string.IsNullOrEmpty(txtCodigo.Text);
+
+            if (nombre|| codigo)
+            {
+                MessageBox.Show("Hay campos requeridos que están vacíos.");
+
+                if(nombre)
+                {
+                    lblRequeridoNombre.Visible = true;
+                    txtNombre.BackColor = Color.LightPink;
+                }
+
+                if(codigo)
+                {
+                    lblRequeridoCodigo.Visible = true;
+                    txtCodigo.BackColor = Color.LightPink;
+
+                }
+                return true;
+            }
+            lblRequeridoNombre.Visible = false;
+            txtNombre.BackColor = SystemColors.Window;
+            lblRequeridoCodigo.Visible = false;
+            txtCodigo.BackColor = SystemColors.Window;
+
+            if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                MessageBox.Show("El campo precio no puede estar vacío");
+                lblRequeridoPrecio.Text = "Campo Requerido";
+                lblRequeridoPrecio.Visible = true;
+                txtPrecio.BackColor = Color.LightPink;
+                return true;
+            }
+            else
+            {
+                lblRequeridoPrecio.Visible = false;
+                txtPrecio.BackColor = SystemColors.Window;
+            }
+
+            if(!(soloNumeros(txtPrecio.Text)))
+            {
+                MessageBox.Show("El campo Precio solo admite valores numéricos.");
+                lblRequeridoPrecio.Text = "Este campo solo admite números.";
+                lblRequeridoPrecio.Visible = true;
+                txtPrecio.BackColor = Color.LightPink;
+                return true;
+            }
+            else
+            {
+                lblRequeridoPrecio.Visible = false;
+                txtPrecio.BackColor = SystemColors.Window;
+
+            }
+
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
