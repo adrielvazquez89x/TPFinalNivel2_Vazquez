@@ -41,7 +41,7 @@ namespace presentacion
         private void frmListadoMarcas_Load(object sender, EventArgs e)
         {
             cargarListado();
-            pbxLogo.Load("https://fotosdememes.b-cdn.net/wp-content/uploads/2022/04/aqui-colocaria-mi-trofeo-si-tuviera-uno-sin-texto.jpg");
+           // pbxLogo.Load("https://fotosdememes.b-cdn.net/wp-content/uploads/2022/04/aqui-colocaria-mi-trofeo-si-tuviera-uno-sin-texto.jpg");
         }
 
         public void OcultarColumnas()
@@ -79,6 +79,11 @@ namespace presentacion
 
                 throw ex;
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

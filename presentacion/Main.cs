@@ -13,6 +13,8 @@ namespace presentacion
 {
     public partial class Main : Form
     {
+        public bool BanderaBtn { get; set; }
+
         public Main()
         {
             InitializeComponent();
@@ -20,36 +22,53 @@ namespace presentacion
         }
         private void btnAbrirArticulos_Click(object sender, EventArgs e)
         {
-            
-
-            foreach (var window in Application.OpenForms)
+            if(!VerificarVentanasAbiertas())
             {
-                if (window.GetType() == typeof(frmListadoMarcas) || window.GetType() == typeof(frmListadoArticulos))
-                {
-                    return;
-                }
+                frmListadoArticulos listadoArt = new frmListadoArticulos();
+                listadoArt.MdiParent = this;
+                listadoArt.Show();
             }
 
-            frmListadoArticulos listadoArt = new frmListadoArticulos();
-            listadoArt.MdiParent = this;
-            listadoArt.Show();
         }
 
         private void btnAbrirMarcas_Click(object sender, EventArgs e)
         {
-            foreach (var window in Application.OpenForms)
+            if(!VerificarVentanasAbiertas())
             {
-                if (window.GetType() == typeof(frmListadoMarcas) || window.GetType() == typeof (frmListadoArticulos))
-                {
-                    return;
-                }
+                frmListadoMarcas listadoMarcas = new frmListadoMarcas();
+                listadoMarcas.MdiParent = this;
+                listadoMarcas.Show();
+              
             }
 
-            frmListadoMarcas listadoMarcas = new frmListadoMarcas();
-            listadoMarcas.MdiParent = this;
-            listadoMarcas.Size = this.Size;
-            listadoMarcas.Show();
         }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            if (!VerificarVentanasAbiertas())
+            {
+                frmAbout about = new frmAbout();
+                about.MdiParent = this;
+                about.Show();
+
+            }
+        }
+
+        private bool VerificarVentanasAbiertas()
+        {
+            foreach (Form ventanaAbierta in Application.OpenForms)
+            {
+                if (ventanaAbierta.GetType() == typeof(frmListadoMarcas) || ventanaAbierta.GetType() == typeof(frmListadoArticulos) || ventanaAbierta.GetType() == typeof(frmAbout))
+                {
+                    ventanaAbierta.Focus(); 
+
+                    return true; 
+                }
+
+            }
+            return false; 
+        }
+        
 
     }
 }

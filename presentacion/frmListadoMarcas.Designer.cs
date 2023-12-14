@@ -32,25 +32,29 @@
             this.lblTituloMarcas = new System.Windows.Forms.Label();
             this.btnAddMarca = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.pbxLogo = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvMarcas
             // 
             this.dgvMarcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarcas.Location = new System.Drawing.Point(34, 72);
+            this.dgvMarcas.GridColor = System.Drawing.Color.Black;
+            this.dgvMarcas.Location = new System.Drawing.Point(96, 91);
             this.dgvMarcas.Name = "dgvMarcas";
-            this.dgvMarcas.Size = new System.Drawing.Size(157, 248);
+            this.dgvMarcas.Size = new System.Drawing.Size(337, 248);
             this.dgvMarcas.TabIndex = 0;
             // 
             // lblTituloMarcas
             // 
             this.lblTituloMarcas.AutoSize = true;
+            this.lblTituloMarcas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
             this.lblTituloMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloMarcas.Location = new System.Drawing.Point(215, 22);
+            this.lblTituloMarcas.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTituloMarcas.Location = new System.Drawing.Point(211, 23);
             this.lblTituloMarcas.Name = "lblTituloMarcas";
             this.lblTituloMarcas.Size = new System.Drawing.Size(89, 25);
             this.lblTituloMarcas.TabIndex = 1;
@@ -58,51 +62,78 @@
             // 
             // btnAddMarca
             // 
+            this.btnAddMarca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(206)))), ((int)(((byte)(172)))));
+            this.btnAddMarca.FlatAppearance.BorderSize = 0;
+            this.btnAddMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMarca.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAddMarca.Location = new System.Drawing.Point(152, 364);
             this.btnAddMarca.Name = "btnAddMarca";
             this.btnAddMarca.Size = new System.Drawing.Size(84, 23);
             this.btnAddMarca.TabIndex = 2;
             this.btnAddMarca.Text = "Nueva Marca";
-            this.btnAddMarca.UseVisualStyleBackColor = true;
+            this.btnAddMarca.UseVisualStyleBackColor = false;
             this.btnAddMarca.Click += new System.EventHandler(this.btnAddMarca_Click);
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(3)))), ((int)(((byte)(46)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnEliminar.Location = new System.Drawing.Point(261, 364);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 23);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // pbxLogo
+            // panel1
             // 
-            this.pbxLogo.Location = new System.Drawing.Point(220, 72);
-            this.pbxLogo.Name = "pbxLogo";
-            this.pbxLogo.Size = new System.Drawing.Size(276, 248);
-            this.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogo.TabIndex = 5;
-            this.pbxLogo.TabStop = false;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.lblTituloMarcas);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(523, 68);
+            this.panel1.TabIndex = 5;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(3)))), ((int)(((byte)(46)))));
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCerrar.Location = new System.Drawing.Point(467, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(44, 34);
+            this.btnCerrar.TabIndex = 24;
+            this.btnCerrar.Text = "X";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmListadoMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(523, 419);
-            this.Controls.Add(this.pbxLogo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAddMarca);
-            this.Controls.Add(this.lblTituloMarcas);
             this.Controls.Add(this.dgvMarcas);
+            this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(250, 250);
             this.Name = "frmListadoMarcas";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Marcas en venta";
             this.Load += new System.EventHandler(this.frmListadoMarcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogo)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -112,6 +143,7 @@
         private System.Windows.Forms.Label lblTituloMarcas;
         private System.Windows.Forms.Button btnAddMarca;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.PictureBox pbxLogo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

@@ -63,5 +63,15 @@ namespace presentacion
             }
 
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+
+            if(this.Parent != null && this.Parent is Main)
+            {
+                ((Main)this.Parent).BanderaBtn = false;
+            }
+        }
     }
 }

@@ -38,10 +38,10 @@ namespace presentacion
                 cargarImagen(listaArticulos[0].UrlImg);
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show("No hay elementos para recuperar.");
             }
 
         }
@@ -81,15 +81,29 @@ namespace presentacion
 
         private void bntRecuperarRegistro_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("Estás por restaurar este registro, estás seguro?", "Resturando... ", MessageBoxButtons.OKCancel);
-
-            if(respuesta == DialogResult.OK)
+            if (dgvListadoArticulos.RowCount == 0)
             {
-                RecuperadosNegocio negocio = new RecuperadosNegocio();
-                Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
-                negocio.restaurarRegistro(seleccionado.Id);
-                cargarListado();
+                MessageBox.Show("No hay elementos para recuperar");
             }
+            else
+            {
+                DialogResult respuesta = MessageBox.Show("Estás por restaurar este registro, estás seguro?", "Resturando... ", MessageBoxButtons.OKCancel);
+
+                if (respuesta == DialogResult.OK)
+                {
+                    RecuperadosNegocio negocio = new RecuperadosNegocio();
+                    Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+                    negocio.restaurarRegistro(seleccionado.Id);
+                    cargarListado();
+                }
+            }
+
+
+        }
+
+        private void btnCerrarRecuperar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

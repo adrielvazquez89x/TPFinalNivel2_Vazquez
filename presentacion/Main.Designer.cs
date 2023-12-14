@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnAbrirMarcas = new System.Windows.Forms.Button();
             this.btnAbrirArticulos = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -64,6 +68,7 @@
             this.btnAbout.TabIndex = 2;
             this.btnAbout.Text = "Acerca de";
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // btnAbrirMarcas
             // 
@@ -74,7 +79,7 @@
             this.btnAbrirMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrirMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbrirMarcas.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAbrirMarcas.Location = new System.Drawing.Point(0, 145);
+            this.btnAbrirMarcas.Location = new System.Drawing.Point(0, 190);
             this.btnAbrirMarcas.Name = "btnAbrirMarcas";
             this.btnAbrirMarcas.Size = new System.Drawing.Size(250, 45);
             this.btnAbrirMarcas.TabIndex = 1;
@@ -91,7 +96,7 @@
             this.btnAbrirArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrirArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbrirArticulos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAbrirArticulos.Location = new System.Drawing.Point(0, 100);
+            this.btnAbrirArticulos.Location = new System.Drawing.Point(0, 145);
             this.btnAbrirArticulos.Name = "btnAbrirArticulos";
             this.btnAbrirArticulos.Size = new System.Drawing.Size(250, 45);
             this.btnAbrirArticulos.TabIndex = 0;
@@ -101,11 +106,22 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.Size = new System.Drawing.Size(250, 145);
             this.panelLogo.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(76, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -116,11 +132,14 @@
             this.Controls.Add(this.panelMenuLateral);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalog Administrator";
             this.panelMenuLateral.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -131,6 +150,7 @@
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Button btnAbrirMarcas;
         private System.Windows.Forms.Button btnAbrirArticulos;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
