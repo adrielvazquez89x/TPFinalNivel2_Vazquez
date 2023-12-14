@@ -93,7 +93,7 @@ namespace presentacion
 
                 if (validarCampos())
                 {
-                    MessageBox.Show(precio);
+                    return;
                 }
 
                 articulo.Precio = Convert.ToDecimal(precio.Replace(".",","));
