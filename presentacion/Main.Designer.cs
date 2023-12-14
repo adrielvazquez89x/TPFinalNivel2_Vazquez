@@ -28,79 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.articulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.panelMenuLateral = new System.Windows.Forms.Panel();
+            this.btnAbout = new System.Windows.Forms.Button();
+            this.btnAbrirMarcas = new System.Windows.Forms.Button();
+            this.btnAbrirArticulos = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.panelMenuLateral.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // panelMenuLateral
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.articulosToolStripMenuItem,
-            this.acercaDeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(65)))));
+            this.panelMenuLateral.Controls.Add(this.btnAbout);
+            this.panelMenuLateral.Controls.Add(this.btnAbrirMarcas);
+            this.panelMenuLateral.Controls.Add(this.btnAbrirArticulos);
+            this.panelMenuLateral.Controls.Add(this.panelLogo);
+            this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
+            this.panelMenuLateral.Name = "panelMenuLateral";
+            this.panelMenuLateral.Size = new System.Drawing.Size(250, 821);
+            this.panelMenuLateral.TabIndex = 1;
             // 
-            // articulosToolStripMenuItem
+            // btnAbout
             // 
-            this.articulosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listadoToolStripMenuItem,
-            this.marcasToolStripMenuItem});
-            this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.articulosToolStripMenuItem.Text = "Archivo";
+            this.btnAbout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAbout.FlatAppearance.BorderSize = 0;
+            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(138)))), ((int)(((byte)(36)))));
+            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbout.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAbout.Location = new System.Drawing.Point(0, 776);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(250, 45);
+            this.btnAbout.TabIndex = 2;
+            this.btnAbout.Text = "Acerca de";
+            this.btnAbout.UseVisualStyleBackColor = true;
             // 
-            // listadoToolStripMenuItem
+            // btnAbrirMarcas
             // 
-            this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
-            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listadoToolStripMenuItem.Text = "Articulos";
-            this.listadoToolStripMenuItem.Click += new System.EventHandler(this.listadoToolStripMenuItem_Click);
+            this.btnAbrirMarcas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAbrirMarcas.FlatAppearance.BorderSize = 0;
+            this.btnAbrirMarcas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(138)))), ((int)(((byte)(36)))));
+            this.btnAbrirMarcas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.btnAbrirMarcas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrirMarcas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirMarcas.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAbrirMarcas.Location = new System.Drawing.Point(0, 145);
+            this.btnAbrirMarcas.Name = "btnAbrirMarcas";
+            this.btnAbrirMarcas.Size = new System.Drawing.Size(250, 45);
+            this.btnAbrirMarcas.TabIndex = 1;
+            this.btnAbrirMarcas.Text = "Marcas";
+            this.btnAbrirMarcas.UseVisualStyleBackColor = true;
+            this.btnAbrirMarcas.Click += new System.EventHandler(this.btnAbrirMarcas_Click);
             // 
-            // marcasToolStripMenuItem
+            // btnAbrirArticulos
             // 
-            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.marcasToolStripMenuItem.Text = "Marcas";
-            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
+            this.btnAbrirArticulos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAbrirArticulos.FlatAppearance.BorderSize = 0;
+            this.btnAbrirArticulos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(138)))), ((int)(((byte)(36)))));
+            this.btnAbrirArticulos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(164)))), ((int)(((byte)(0)))));
+            this.btnAbrirArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbrirArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbrirArticulos.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAbrirArticulos.Location = new System.Drawing.Point(0, 100);
+            this.btnAbrirArticulos.Name = "btnAbrirArticulos";
+            this.btnAbrirArticulos.Size = new System.Drawing.Size(250, 45);
+            this.btnAbrirArticulos.TabIndex = 0;
+            this.btnAbrirArticulos.Text = "Artículos";
+            this.btnAbrirArticulos.UseVisualStyleBackColor = true;
+            this.btnAbrirArticulos.Click += new System.EventHandler(this.btnAbrirArticulos_Click);
             // 
-            // acercaDeToolStripMenuItem
+            // panelLogo
             // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.acercaDeToolStripMenuItem.Text = "Acerca de ";
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.TabIndex = 0;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1304, 821);
+            this.Controls.Add(this.panelMenuLateral);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.IsMdiContainer = true;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalog Administrator";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.panelMenuLateral.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem articulosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.Panel panelMenuLateral;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Button btnAbout;
+        private System.Windows.Forms.Button btnAbrirMarcas;
+        private System.Windows.Forms.Button btnAbrirArticulos;
     }
 }
 

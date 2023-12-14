@@ -89,39 +89,31 @@ namespace presentacion
                 articulo.UrlImg = txtUrl.Text;
                 articulo.Fabricante = (Marca)cboMarca.SelectedItem;
                 articulo.Tipo  = (Categoria)cboCategoria.SelectedItem;
-                //articulo.Precio = decimal.Parse(txtPrecio.Text);
-
-                decimal precio;
-                if (Decimal.TryParse(txtPrecio.Text, out precio))
-                {
-                    articulo.Precio = precio;
-
-                }
+                string precio = txtPrecio.Text.Trim();
 
                 if (validarCampos())
                 {
-                    return;
+                    MessageBox.Show(precio);
                 }
+
+                articulo.Precio = Convert.ToDecimal(precio.Replace(".",","));
 
                 //Agregar o modificar articulos
                 if (articulo.Id != 0)
                     {
-
                         negocio.modificarArticulo(articulo);
                         MessageBox.Show("Modificación exitosa.");
 
-                        //Modificar articulo
-                    }
+                    //Modificar articulo
+                }
                     else
                     {
                         //Agregar artículo:
                         negocio.agregarArticulo(articulo);
                         MessageBox.Show("Agregado correctamente.");
 
-
-                    }
-          
-                    Close();
+                }
+                Close();
               
             }
             catch (Exception ex)
@@ -212,18 +204,20 @@ namespace presentacion
             return false;
         }
 
-        private bool soloNumeros(string cadena)
+        private bool soloNumeros(string numero)
         {
-
-            foreach (char caracter in cadena)
+            decimal validar;
+            if (decimal.TryParse(numero, out validar))
             {
-                if (!(char.IsNumber(caracter)))
-                {
-                    return false;
-                }
+                return true;
             }
 
-            return true;
+            return false;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -35,10 +35,7 @@ namespace negocio
             {
                 throw ex;
             }
-            finally
-            {
-                datos.cerrarConexion();
-            }
+
         }
 
         public void agregarMarca(Marca marca)

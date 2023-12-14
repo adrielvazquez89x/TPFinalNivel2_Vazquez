@@ -1,6 +1,7 @@
 ﻿using dominio;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,31 +14,38 @@ namespace negocio
         public List<Articulo> listarArticulos()
         {
             List<Articulo> listaArticulos = new List<Articulo>();
-
             AccesoDatos datos = new AccesoDatos();
 
-            datos.setConsulta("Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%'");
-            datos.ejecutarLectura();
+            try
+            {
+                datos.setConsulta("Select A.Id, Codigo, Nombre, A.Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio, M.Descripcion Marca, C.Descripcion Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where  A.IdMarca = M.Id And A.IdCategoria = C.Id And CODIGO NOT LIKE '%(BAJA)%'");
+                datos.ejecutarLectura();
 
-            while (datos.Lector.Read())
-            { 
-                Articulo auxiliar = new Articulo();
-                auxiliar.Id = (int)datos.Lector["Id"];
-                auxiliar.Codigo = (string)datos.Lector["Codigo"];
-                auxiliar.Nombre = (string)datos.Lector["Nombre"];
-                auxiliar.Descripcion = (string)datos.Lector["Descripcion"];
-                auxiliar.Fabricante = new Marca();
-                auxiliar.Fabricante.Nombre = (string)datos.Lector["Marca"];
-                auxiliar.Fabricante.Id = (int)datos.Lector["IdMarca"];
-                auxiliar.Tipo = new Categoria();
-                auxiliar.Tipo.Descripcion = (string)datos.Lector["Categoria"];
-                auxiliar.Tipo.Id = (int)datos.Lector["IdCategoria"];
-                auxiliar.UrlImg = (string)datos.Lector["ImagenUrl"];
-                auxiliar.Precio = Math.Round((decimal)datos.Lector["Precio"], 2); // Redondea a dos decimales
+                while (datos.Lector.Read())
+                {
+                    Articulo auxiliar = new Articulo();
+                    auxiliar.Id = (int)datos.Lector["Id"];
+                    auxiliar.Codigo = (string)datos.Lector["Codigo"];
+                    auxiliar.Nombre = (string)datos.Lector["Nombre"];
+                    auxiliar.Descripcion = (string)datos.Lector["Descripcion"];
+                    auxiliar.Fabricante = new Marca();
+                    auxiliar.Fabricante.Nombre = (string)datos.Lector["Marca"];
+                    auxiliar.Fabricante.Id = (int)datos.Lector["IdMarca"];
+                    auxiliar.Tipo = new Categoria();
+                    auxiliar.Tipo.Descripcion = (string)datos.Lector["Categoria"];
+                    auxiliar.Tipo.Id = (int)datos.Lector["IdCategoria"];
+                    auxiliar.UrlImg = (string)datos.Lector["ImagenUrl"];
+                    auxiliar.Precio = Math.Round((decimal)datos.Lector["Precio"], 2); // Redondea a dos decimales
 
-                listaArticulos.Add(auxiliar);
+                    listaArticulos.Add(auxiliar);
+                }
             }
-            datos.cerrarConexion();
+            catch (Exception)
+            {
+
+                throw;
+            }
+        
 
             return listaArticulos;
         }
@@ -48,7 +56,7 @@ namespace negocio
 
             try
             {
-                datos.setConsulta($"Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio) values ('{nuevo.Codigo}', '{nuevo.Nombre}','{nuevo.Descripcion}', {nuevo.Tipo.Id},{nuevo.Fabricante.Id},'{nuevo.UrlImg}',{nuevo.Precio})");
+                datos.setConsulta($"Insert into ARTICULOS (Codigo, Nombre, Descripcion, IdCategoria, IdMarca, ImagenUrl, Precio) values ('{nuevo.Codigo}', '{nuevo.Nombre}','{nuevo.Descripcion}', {nuevo.Tipo.Id},{nuevo.Fabricante.Id},'{nuevo.UrlImg}',{nuevo.Precio.ToString(new CultureInfo("en-US"))})");
                 datos.ejecutarLectura();
             }
             catch (Exception ex)
@@ -79,13 +87,17 @@ namespace negocio
 
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
         public void eliminarArticulo(Articulo articulo)
         {
+                AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 datos.setConsulta($"update ARTICULOS set Codigo = '{articulo.Codigo} (BAJA)' where Id = {articulo.Id}");
                 datos.ejecutarAccion();
             }
@@ -93,6 +105,10 @@ namespace negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
@@ -185,6 +201,7 @@ namespace negocio
 
                 throw ex;
             }
+
         }
     }
 }

@@ -30,11 +30,11 @@
         {
             this.lblTituloRecuperar = new System.Windows.Forms.Label();
             this.dgvListadoArticulos = new System.Windows.Forms.DataGridView();
-            this.pbxAltaImagen = new System.Windows.Forms.PictureBox();
+            this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             this.bntRecuperarRegistro = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxAltaImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTituloRecuperar
@@ -55,15 +55,16 @@
             this.dgvListadoArticulos.Name = "dgvListadoArticulos";
             this.dgvListadoArticulos.Size = new System.Drawing.Size(803, 174);
             this.dgvListadoArticulos.TabIndex = 1;
+            this.dgvListadoArticulos.SelectionChanged += new System.EventHandler(this.dgvListadoArticulos_SelectionChanged);
             // 
-            // pbxAltaImagen
+            // pbxImagenArticulo
             // 
-            this.pbxAltaImagen.Location = new System.Drawing.Point(910, 59);
-            this.pbxAltaImagen.Name = "pbxAltaImagen";
-            this.pbxAltaImagen.Size = new System.Drawing.Size(233, 232);
-            this.pbxAltaImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxAltaImagen.TabIndex = 18;
-            this.pbxAltaImagen.TabStop = false;
+            this.pbxImagenArticulo.Location = new System.Drawing.Point(910, 59);
+            this.pbxImagenArticulo.Name = "pbxImagenArticulo";
+            this.pbxImagenArticulo.Size = new System.Drawing.Size(233, 232);
+            this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagenArticulo.TabIndex = 18;
+            this.pbxImagenArticulo.TabStop = false;
             // 
             // bntRecuperarRegistro
             // 
@@ -73,6 +74,7 @@
             this.bntRecuperarRegistro.TabIndex = 19;
             this.bntRecuperarRegistro.Text = "Restaurar Registro";
             this.bntRecuperarRegistro.UseVisualStyleBackColor = true;
+            this.bntRecuperarRegistro.Click += new System.EventHandler(this.bntRecuperarRegistro_Click);
             // 
             // btnCerrar
             // 
@@ -91,13 +93,14 @@
             this.ClientSize = new System.Drawing.Size(1206, 371);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.bntRecuperarRegistro);
-            this.Controls.Add(this.pbxAltaImagen);
+            this.Controls.Add(this.pbxImagenArticulo);
             this.Controls.Add(this.dgvListadoArticulos);
             this.Controls.Add(this.lblTituloRecuperar);
             this.Name = "frmRecuperarArticulos";
             this.Text = "frmRecuperarArticulos";
+            this.Load += new System.EventHandler(this.frmRecuperarArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxAltaImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,7 +110,7 @@
 
         private System.Windows.Forms.Label lblTituloRecuperar;
         private System.Windows.Forms.DataGridView dgvListadoArticulos;
-        private System.Windows.Forms.PictureBox pbxAltaImagen;
+        private System.Windows.Forms.PictureBox pbxImagenArticulo;
         private System.Windows.Forms.Button bntRecuperarRegistro;
         private System.Windows.Forms.Button btnCerrar;
     }

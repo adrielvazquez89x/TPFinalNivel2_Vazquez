@@ -19,8 +19,11 @@ namespace presentacion
         public frmListadoArticulos()
         {
             InitializeComponent();
+            
         }
 
+
+        // METODOS
         private void cargarListado()
         {
             ArticulosNegocio negocio = new ArticulosNegocio();
@@ -44,23 +47,6 @@ namespace presentacion
             }
 
         }
-            
-
-        private void frmListadoArticulos_Load(object sender, EventArgs e)
-        {
-            cargarListado();
-
-            //Cargar filtros
-            cboCampo.Items.Add("Precio");
-            cboCampo.Items.Add("Nombre");
-            cboCampo.Items.Add("Descripción");
-        }
-
-        private void ocultarColumnas()
-        {
-            dgvListadoArticulos.Columns["UrlImg"].Visible = false;
-            dgvListadoArticulos.Columns["Id"].Visible = false;
-        }
 
         private void cargarImagen(string imagen)
         {
@@ -74,20 +60,59 @@ namespace presentacion
                 pbxImagenArticulo.Load("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }
         }
-
-        private void dgvListadoArticulos_SelectionChanged(object sender, EventArgs e)
+        private void ocultarColumnas()
         {
-            if(dgvListadoArticulos.CurrentRow != null)
-            {
-                Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
-                cargarImagen(seleccionado.UrlImg);
-
-                //Datos al lado de la imágen
-                lblListadoArticulo.Text = seleccionado.Fabricante.ToString();
-                lblListadoModeloArticulo.Text = seleccionado.Nombre.ToString();
-                frmListadoPrecioArticulo.Text = "$" + seleccionado.Precio;
-            }
+            dgvListadoArticulos.Columns["UrlImg"].Visible = false;
+            dgvListadoArticulos.Columns["Id"].Visible = false;
         }
+
+        private bool soloNumeros(string cadena)
+        {
+
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        private bool validarFiltro()
+        {
+            if (cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione un campo para filtrar");
+                return true;
+            }
+            if (cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione un criterio para filtrar");
+                return true;
+            }
+            if (cboCampo.SelectedItem.ToString() == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Ingresá un valor para filtrar");
+                    return true;
+                }
+
+                if (!(soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Solo números por favor");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+
+
+        // EVENTOS
 
         private void btnNuevoArticulo_Click(object sender, EventArgs e)
         {
@@ -136,66 +161,6 @@ namespace presentacion
 
         }
 
-        private void txtFiltro_TextChanged(object sender, EventArgs e)
-        {
-            List<Articulo> listaFiltrada;
-            string filtro = txtFiltro.Text;
-
-            if(filtro != "")
-            {
-                listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper())|| x.Fabricante.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
-            }
-            else
-            {
-                listaFiltrada = listaArticulos;
-            }
-
-            dgvListadoArticulos.DataSource = null;
-            dgvListadoArticulos.DataSource = listaFiltrada;
-        }
-
-        private bool validarFiltro()
-        {
-            if(cboCampo.SelectedIndex < 0)
-            {
-                MessageBox.Show("Por favor, seleccione un campo para filtrar");
-                return true;
-            }
-            if(cboCriterio.SelectedIndex < 0) 
-            {
-                MessageBox.Show("Por favor, seleccione un criterio para filtrar");
-                return true;
-            }
-            if(cboCampo.SelectedItem.ToString() == "Precio")
-            {
-                if(string.IsNullOrEmpty(txtFiltroAvanzado.Text))
-                {
-                    MessageBox.Show("Ingresá un valor para filtrar");
-                    return true;
-                }
-
-                if (!(soloNumeros(txtFiltroAvanzado.Text))){
-                    MessageBox.Show("Solo números por favor");
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private bool soloNumeros(string cadena)
-        {
-
-            foreach (char caracter in cadena)
-            {
-                if(!(char.IsNumber(caracter)))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -223,6 +188,13 @@ namespace presentacion
             }
         }
 
+        private void btnRegistrosEliminados_Click(object sender, EventArgs e)
+        {
+            frmRecuperarArticulos articulos = new frmRecuperarArticulos();
+            articulos.ShowDialog();
+            cargarListado();
+        }
+
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Cambiar el contenido del campo Criterio, cuando cambie el contenido de campo
@@ -245,10 +217,51 @@ namespace presentacion
             }
         }
 
-        private void btnRegistrosEliminados_Click(object sender, EventArgs e)
+        private void dgvListadoArticulos_SelectionChanged(object sender, EventArgs e)
         {
-           frmRecuperarArticulos articulos = new frmRecuperarArticulos();
-            articulos.ShowDialog();
+            if (dgvListadoArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvListadoArticulos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImg);
+
+                //Datos al lado de la imágen
+                lblListadoArticulo.Text = seleccionado.Fabricante.ToString();
+                lblListadoModeloArticulo.Text = seleccionado.Nombre.ToString();
+                frmListadoPrecioArticulo.Text = "$" + seleccionado.Precio;
+            }
+        }
+
+        private void frmListadoArticulos_Load(object sender, EventArgs e)
+        {
+            cargarListado();
+
+            //Cargar filtros
+            cboCampo.Items.Add("Precio");
+            cboCampo.Items.Add("Nombre");
+            cboCampo.Items.Add("Descripción");
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if (filtro != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Fabricante.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+
+            dgvListadoArticulos.DataSource = null;
+            dgvListadoArticulos.DataSource = listaFiltrada;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

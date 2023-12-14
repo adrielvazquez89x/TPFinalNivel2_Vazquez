@@ -16,24 +16,40 @@ namespace presentacion
         public Main()
         {
             InitializeComponent();
-
+           
+        }
+        private void btnAbrirArticulos_Click(object sender, EventArgs e)
+        {
             
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+            foreach (var window in Application.OpenForms)
+            {
+                if (window.GetType() == typeof(frmListadoMarcas) || window.GetType() == typeof(frmListadoArticulos))
+                {
+                    return;
+                }
+            }
 
-        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmListadoMarcas listadoMarcas = new frmListadoMarcas();    
-            listadoMarcas.ShowDialog();
-        }
-
-        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             frmListadoArticulos listadoArt = new frmListadoArticulos();
-            listadoArt.ShowDialog();
+            listadoArt.MdiParent = this;
+            listadoArt.Show();
         }
+
+        private void btnAbrirMarcas_Click(object sender, EventArgs e)
+        {
+            foreach (var window in Application.OpenForms)
+            {
+                if (window.GetType() == typeof(frmListadoMarcas) || window.GetType() == typeof (frmListadoArticulos))
+                {
+                    return;
+                }
+            }
+
+            frmListadoMarcas listadoMarcas = new frmListadoMarcas();
+            listadoMarcas.MdiParent = this;
+            listadoMarcas.Size = this.Size;
+            listadoMarcas.Show();
+        }
+
     }
 }
